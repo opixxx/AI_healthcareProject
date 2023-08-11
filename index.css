@@ -197,13 +197,12 @@ nav a {
 
 .gauge {
     position: relative;
-    width: 200px;
-    height: 30px;
+    width: 400px;        /* 폭을 300px로 키움 */
+    height: 50px;        /* 높이를 50px로 키움 */
     background: #e0e0e0;
-    border-radius: 15px;
+    border-radius: 25px; /* 높이의 절반 값으로 설정하여 완벽한 둥근 모양을 유지 */
     overflow: hidden;
-    margin-left: 225px;
-    
+    margin-left: 130px;
 }
 
 .gauge-fill {
@@ -219,8 +218,7 @@ nav a {
     top: 0;
     left: 0;
     text-align: center;
-    line-height: 30px;
+    line-height: 50px;  /* .gauge의 높이와 동일하게 설정 */
     font-weight: bold;
     color: #333;
-    
 }
