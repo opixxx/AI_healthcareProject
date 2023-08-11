@@ -2,23 +2,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: #e8f8f5; /* 약간의 민트색 톤 추가 */
 }
 
 h1 {
     text-align: center;
-    margin: 20px 0;
+    margin: 40px 0;
+    color: #00664d; /* 더 진한 녹색으로 제목 강조 */
 }
 
 #upload-form {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 header {
     padding: 20px;
     background-color: #00cc99;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo-box {
@@ -35,33 +36,48 @@ header {
 
 #video-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+#original-video-wrapper, 
+#corrected-video-wrapper {
+    margin: 0 30px;
+    border-radius: 10px;
+    overflow: hidden; /* 비디오 둥근 모서리 적용 */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
 }
 
 #original-video,
 #corrected-video {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     height: auto;
+    display: block;
 }
 
 #advice-container {
     max-width: 400px;
-    margin: 20px auto;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border: 1px solid #350762;
-    border-radius: 4px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #e8f8f5;
+    border: 1px solid #00cc99;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 #advice-container h3 {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #00664d;
 }
 
 #advice-container p {
     font-size: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    color: #004d33;
 }

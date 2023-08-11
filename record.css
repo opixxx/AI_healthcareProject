@@ -19,16 +19,36 @@ body {
 
 .input-group {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;  /* 방향을 column으로 설정 */
+    gap: 10px;  /* 각 요소들 사이의 간격 */
+    align-items: flex-start;  /* label과 select/input을 왼쪽 정렬 */
 }
 
-input[type="number"] {
+label {
+    margin-bottom: 5px;  /* label 아래의 간격 */
+}
+
+input[type="number"], select {
     width: 60%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     outline: none;
+    appearance: none;  /* 기본 select 스타일 제거 */
+    background-color: #fff;
+    font-family: 'Arial', sans-serif;  /* 폰트를 일관성 있게 설정 */
+}
+
+/* select 요소에 대한 화살표 아이콘을 커스텀하기 위한 스타일 */
+select::-ms-expand {
+    display: none;  /* IE 및 Edge 브라우저에 대한 처리 */
+}
+
+select {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" fill="%23ddd" viewBox="0 0 12 6"><path d="M1.41 0L6 4.58L10.59 0L12 1.41L6 7.41L0 1.41L1.41 0Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    cursor: pointer;
 }
 
 header {
@@ -91,4 +111,10 @@ header {
 
 .day-box:hover {
     background-color: #B3E5FC;
+}
+
+.performance-desc {
+    font-size: 12px;
+    color: #888; /* 연한 글씨로 설정 */
+    margin-top: 5px;
 }
