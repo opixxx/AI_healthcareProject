@@ -15,8 +15,40 @@ header {
     padding: 10px;
 }
 
+
 h1 {
     margin: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 nav ul {
@@ -25,8 +57,10 @@ nav ul {
     display: flex;
     border: 2px solid #ccc;
     border-radius: 5px;
+   
     
 }
+
 
 
 nav a {
@@ -34,14 +68,11 @@ nav a {
     text-decoration: none;
 }
 
-
 .logo-box {
     background-color: #00cc99;
     padding: 10px;
     border-radius: 5px;
 }
-
-/* 기본 스타일링 생략 */
 
 /* 섹션 2 스타일링 */
 .section-2 {
@@ -96,6 +127,8 @@ nav a {
 }
 
 .section-3 .box {
+    flex: 1;
+    margin: 0 10px;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
