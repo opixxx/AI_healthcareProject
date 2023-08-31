@@ -118,3 +118,14 @@ header {
     color: #888; /* 연한 글씨로 설정 */
     margin-top: 5px;
 }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    text-align: right;
+    padding-right: 20px;  /* 오른쪽 여백을 주어 더 깔끔하게 보이도록 합니다 */
+}
