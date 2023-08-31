@@ -1,4 +1,4 @@
-package inu890.HealthLounge.domain;
+package inu890.HealthLounge.domain.Member;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
@@ -10,13 +10,14 @@ public class Member {
     private long id;    //DB에 저장할 ID
 
     @NotEmpty
-    private String LoginId;   //로그인ID
+    private String loginId;   //로그인ID
 
     @NotEmpty
-    private String Name;
+    private String userName;
 
     @NotEmpty
     private String password;
 
+    private String gender;
 
 }
