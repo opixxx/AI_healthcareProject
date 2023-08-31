@@ -1,0 +1,13 @@
+package inu890.HealthLounge;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class HealthLoungeApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
