@@ -1,48 +1,48 @@
-function createCalendar(year, month) {
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const firstDayOfWeek = new Date(year, month, 1).getDay();
+function createCalendar(month, year) {
+    const calendar = document.getElementById('calendar');
+    const days = ['일', '월', '화', '수', '목', '금', '토'];
+    const daysInMonth = new Date(year, month, 0).getDate();
 
-    const calendarContainer = document.getElementById('calendar');
-    calendarContainer.innerHTML = '';
+    let content = `<table class="calendar-table">`;
+    content += `<thead><tr>`;
+    for (let day of days) {
+        content += `<th>${day}</th>`;
+    }
+    content += `</tr></thead><tbody><tr>`;
 
-    const table = document.createElement('table');
-    table.classList.add('calendar-table');
-
-    const headerRow = document.createElement('tr');
-    const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-    daysOfWeek.forEach(day => {
-        const th = document.createElement('th');
-        th.textContent = day;
-        headerRow.appendChild(th);
-    });
-
-    table.appendChild(headerRow);
-
-    let date = 1;
-    for (let i = 0; i < 6; i++) {
-        const row = document.createElement('tr');
-        for (let j = 0; j < 7; j++) {
-            if (i === 0 && j < firstDayOfWeek) {
-                const td = document.createElement('td');
-                row.appendChild(td);
-            } else if (date > daysInMonth) {
-                break;
-            } else {
-                const td = document.createElement('td');
-                td.textContent = date;
-                row.appendChild(td);
-                date++;
+    for (let i = 1; i <= daysInMonth; i++) {
+        const dayOfWeek = new Date(year, month - 1, i).getDay();
+        if (i === 1) {
+            for (let j = 0; j < dayOfWeek; j++) {
+                content += `<td></td>`;
             }
         }
-        table.appendChild(row);
+        content += `<td><a href="#" onclick="fetchDataForDate(${i})">${i}</a></td>`;
+        if (dayOfWeek === 6 && i !== daysInMonth) {
+            content += `</tr><tr>`;
+        }
     }
-
-    calendarContainer.appendChild(table);
+    content += `</tr></tbody></table>`;
+    calendar.innerHTML = content;
 }
 
-// 현재 년도와 월을 가져와서 달력을 생성합니다.
-const now = new Date();
-const currentYear = now.getFullYear();
-const currentMonth = now.getMonth();
+// 현재 날짜를 기준으로 달력 생성
+const currentDate = new Date();
 
-createCalendar(currentYear, currentMonth);
+// 현재 날짜의 월과 연도를 사용하여 달력 생성
+createCalendar(currentDate.getMonth() + 1, currentDate.getFullYear());
+
+async function fetchDataForDate(day) {
+    try {
+        const response = await fetch(`/api/data/${day}`);
+        const data = await response.json();
+        if (data.success) {
+            // data 정보를 이용하여 원하는 곳에 표시
+        } else {
+            alert('데이터를 가져오는 데 실패했습니다.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('아직 못했어 임마.');
+    }
+}

@@ -191,9 +191,26 @@ nav a {
     color: white;
 }
 
-.calendar-table td {
-    background-color: #fff;
+.calendar-table td a {
+    color: #333; /* 어두운 회색 */
+    text-decoration: none; /* 밑줄 제거 */
 }
+.calendar-table td a:hover {
+    color: #007BFF; /* 블루 */
+    background-color: #f0f0f0; /* 밝은 회색 */
+}
+
+.calendar-table td a.selected {
+    background-color: #00cc99; /* 민트색 */
+    color: #fff; /* 흰색 */
+    border-radius: 50%; /* 원형 배경 */
+    display: inline-block; /* 배경 크기 조절 */
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+}
+
+
 
 .gauge {
     position: relative;
