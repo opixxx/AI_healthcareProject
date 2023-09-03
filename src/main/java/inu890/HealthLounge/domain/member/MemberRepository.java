@@ -1,7 +1,6 @@
-package inu890.HealthLounge.domain.Member;
+package inu890.HealthLounge.domain.member;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.*;
 

@@ -1,8 +1,7 @@
-package inu890.HealthLounge.domain.Member;
+package inu890.HealthLounge.domain.member;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
-import org.springframework.stereotype.Component;
 
 @Data
 public class Member {

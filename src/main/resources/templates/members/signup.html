@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <link rel="stylesheet" href="login.css"> <!-- 같은 CSS를 사용합니다. -->
-    <script src="register.js" defer></script> <!-- 회원가입 JS -->
+    <script src="signup.js" defer></script> <!-- 회원가입 JS -->
 </head>
 <header>
     <div class="logo-box">
@@ -23,8 +23,8 @@
             <input type="text" id="loginId" name="loginId" required>
         </div>
         <div class="input-group">
-            <label for="reg-password">비밀번호</label>
-            <input type="password" id="reg-password" name="password" required>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" required>
         </div>
         <div class="input-group">
             <label for="confirm-password">비밀번호 확인</label>
