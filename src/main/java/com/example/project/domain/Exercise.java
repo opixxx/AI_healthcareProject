@@ -4,14 +4,18 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter @Setter
-public class Member {
+public class Exercise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
-    private Long memberId;
+    @Column(name = "exercise_id")
+    private Long exerciseId;
     private String name;
-    private String gender;
+
+    @OneToMany(mappedBy = "exercise")
+    private List<RoutineDetail> routineDetails;
 }

@@ -1,10 +1,9 @@
 package com.example.project.domain;
 
 public enum FitnessLevel {
-    BEGINNER("초급"),
-    INTERMEDIATE("중급");
+    BEGINNER, INTERMEDIATE
 
-    private final String level;
+  /*  private final String level;
 
     FitnessLevel(String level) {
         this.level = level;
@@ -12,5 +11,5 @@ public enum FitnessLevel {
 
     public String getLevel() {
         return level;
-    }
+    }*/
 }
