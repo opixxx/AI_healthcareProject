@@ -3,11 +3,12 @@ package inu890.HealthLounge.domain.member;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class MemberRepository {
 
-    private static Map<Long, Member> store = new HashMap<>();
+    private static Map<Long, Member> store = new ConcurrentHashMap<>();
     private static long sequence= 0L;
 
     public Member save(Member member) {
