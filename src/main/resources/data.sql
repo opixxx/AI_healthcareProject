@@ -1,4 +1,5 @@
 insert into exercise (name) values
+    ('체스트 프레스'),
     ('인클라인 벤치 프레스 머신'),
     ('인클라인 벤치 프레스'),
     ('벤치 프레스'),
@@ -37,13 +38,39 @@ insert into exercise (name) values
     ('밀리터리 프레스'),
     ('바벨 컬'),
     ('덤밸 킥백'),
-    ('케이블 푸쉬 다운');
+    ('케이블 푸쉬 다운'),
+    ('시티드 로우');
+INSERT INTO routine (routine_id, version,level, day_count) VALUES
+    (1, 1,'BEGINNER', 'THREE'),
+    (2, 1,'BEGINNER', 'FOUR'),
+    (3, 1,'BEGINNER', 'FIVE'),
+    (4, 1,'INTERMEDIATE', 'THREE'),
+    (5, 1,'INTERMEDIATE', 'FOUR'),
+    (6, 1,'INTERMEDIATE', 'FIVE');
 
-INSERT INTO routine (routine_id,level, day_count)
-VALUES (1,'BEGINNER', 'THREE'),
-       (2,'BEGINNER', 'FOUR'),
-       (3,'BEGINNER', 'FIVE'),
-       (4,'INTERMEDIATE', 'THREE'),
-       (5,'INTERMEDIATE', 'FOUR'),
-       (6,'INTERMEDIATE', 'FIVE');
+insert into routine_detail (routine_detail_id, routine_id, day, exercise_id, sets, reps) values
+    (1, 3, 1, 1, 4, 12),
+    (2, 3, 1, 2, 4, 12),
+    (3, 3, 1, 11, 4, 12),
+    (4, 3, 1, 14, 5, 20),
+    (5, 3, 1, 39, 3, 12),
+    (6, 3, 2, 24, 4, 12),
+    (7, 3, 2, 41, 4, 12),
+    (8, 3, 2, 18, 5, 20),
+    (9, 3, 2, 26, 4, 12),
+    (10, 3, 2, 38, 3, 12),
+    (11, 3, 3, 30, 5, 20),
+    (12, 3, 3, 31, 5, 20),
+    (13, 3, 3, 32, 5, 20),
+    (14, 3, 3, 33, 5, 20),
+    (15, 3, 4, 7, 4, 15),
+    (16, 3, 4, 8, 4, 15),
+    (17, 3, 4, 9, 4, 20),
+    (18, 3, 4, 12, 4, 12),
+    (19, 3, 4, 39, 3, 12),
+    (20, 3, 5, 20, 4, 12),
+    (21, 3, 5, 21, 4, 12),
+    (22, 3, 5, 19, 5, 20),
+    (23, 3, 5, 26, 4, 12),
+    (24, 3, 5, 38, 3, 12);
 
