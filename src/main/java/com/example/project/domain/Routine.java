@@ -19,6 +19,8 @@ public class Routine {
     @Column(name = "routine_id")
     private Long routineId;
 
+    private int version;
+
     @Enumerated(EnumType.STRING)
     private Days dayCount;
 
