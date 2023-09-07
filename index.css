@@ -223,7 +223,7 @@ nav a {
 }
 
 .gauge-fill {
-    height: 100%;
+    height: %;
     background-color: #00cc99;
     transition: width 1s;
 }
