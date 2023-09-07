@@ -13,11 +13,11 @@ public class RoutineDetail {
     private int sets;
     private int reps;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "routineId")
     private Routine routine;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "exerciseId")
     private Exercise exercise;
 }
