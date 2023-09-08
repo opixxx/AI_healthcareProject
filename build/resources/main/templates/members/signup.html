@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-    <link rel="stylesheet" href="login.css"> <!-- 같은 CSS를 사용합니다. -->
-    <script src="signup.js" defer></script> <!-- 회원가입 JS -->
+    <link rel="stylesheet" th:href="@{css/login.css}"> <!-- 같은 CSS를 사용합니다. -->
+    <script th:src="@{js/signup.js}" defer></script> <!-- 회원가입 JS -->
 </head>
+
 <header>
     <div class="logo-box">
-        <a href="index.html">Health Lounge</a>
+        <a th:href="@{/}">Health Lounge</a>
     </div>
 
 </header>
@@ -48,7 +49,7 @@
         <button type="submit">회원가입</button>
     </form>
     <div class="additional-links">
-        <a href="login.html">로그인</a>
+        <a th:href="@{login}">로그인</a>
     </div>
 </div>
 </body>

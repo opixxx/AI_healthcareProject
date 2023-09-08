@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" th:href="@{css/login.css}">
 </head>
 <body>
 
 <header>
     <div class="logo-box">
-        <a href="index.html">Health Lounge</a>
+        <a th:href="@{/}">Health Lounge</a>
     </div>
 
 </header>
@@ -30,8 +30,8 @@
         <button type="submit">로그인</button>
     </form>
     <div class="additional-links">
-        <a href="signup.html">회원가입</a>
-        <a href="/forgot-password">비밀번호 찾기</a>
+        <a th:href="@{signup}">회원가입</a>
+        <a th:href="@{forgot-password}">비밀번호 찾기</a>
     </div>
 </div>
 </body>
