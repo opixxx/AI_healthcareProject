@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>운동루틴추천</title>
+    <link rel="stylesheet" th:href="@{/css/routine.css}">
+    <script th:src="@{/js/routine.js}" defer></script>
+</head>
+<body>
+<header>
+    <div class="logo-box">
+        <a th:href="@{/}">Health Lounge</a>
+    </div>
+    <div class="logo-box">
+        <a>루틴 추천</a>
+    </div>
+</header>
+<div class="input-section">
+    <div class="input-group">
+        <label for="exercise-count">운동횟수</label>
+        <input type="number" id="exercise-count" placeholder="입력값">
+    </div>
+    <div class="input-group">
+        <label for="performance-level">수행 레벨</label>
+        <select id="performance-level">
+            <option value="beginner">헬린이</option>
+            <option value="intermediate">헬스장 민페남</option>
+            <option value="expert">헬스의 정석</option>
+        </select>
+        <p id="performance-description" class="performance-desc"></p>
+    </div>
+    <div class="input-group">
+        <button id="fetch-data" class="chicken-btn">🐔추천해준닭</button>
+    </div>
+</div>
+
+<div class="day-section">
+    <a th:href="@{/day1.html}"><div class="day-box">DAY1</div></a>
+    <a th:href="@{/day2.html}"><div class="day-box">DAY2</div></a>
+    <a th:href="@{/day3.html}"><div class="day-box">DAY3</div></a>
+</div>
+</body>
+</html>
