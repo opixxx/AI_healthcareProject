@@ -134,7 +134,7 @@ insert into routine_detail (routine_id, day, exercise_id, sets, reps) values
     (2, 3, 40, 3, 15),
     (2, 3, 44, 4, 12),
     (2, 3, 31, 3, 20),
-    -- 초보 4일 verison 1
+    -- 초보 4일 version 1
     (3, 1, 4, 5, 12),
     (3, 1, 6, 4, 10),
     (3, 1, 14, 4, 12),

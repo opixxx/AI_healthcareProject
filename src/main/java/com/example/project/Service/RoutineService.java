@@ -2,8 +2,6 @@ package com.example.project.Service;
 
 import com.example.project.domain.Days;
 import com.example.project.domain.FitnessLevel;
-import com.example.project.domain.Routine;
-import com.example.project.domain.RoutineDetail;
 import com.example.project.repository.RoutineDetailRepository;
 import com.example.project.repository.RoutineRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,15 +16,22 @@ import java.util.Random;
 public class RoutineService {
 
     private final RoutineRepository routineRepository;
+    private final RoutineDetailRepository routineDetailRepository;
 
     @Transactional
-    public List<RoutineDetail> getRandomRoutineDetailsByDayCountAndLevel(Days dayCount, FitnessLevel level) {
-        List<Routine> routines = routineRepository.findByDayCountAndLevel(dayCount, level);
+    public List<Object[]> getRandomRoutineDetailsByDayCountAndLevel(Days dayCount, FitnessLevel level) {
+        List<Long> routineIds = routineRepository.findRoutineIdByDayCountAndLevel(dayCount, level);
+
+        if (routineIds.isEmpty()) {
+            throw new IllegalArgumentException("조건에 맞는 루틴이 없습니다.");
+        }
 
         Random random = new Random();
-        Routine selectRoutine = routines.get(random.nextInt(routines.size()));
+        Long selectedRoutineId = routineIds.get(random.nextInt(routineIds.size()));
 
-        return selectRoutine.getRoutineDetails();
+        return routineDetailRepository.findDetailsWithExerciseNameByRoutineId(selectedRoutineId);
     }
 
+
 }
+

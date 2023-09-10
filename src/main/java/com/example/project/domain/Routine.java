@@ -27,7 +27,7 @@ public class Routine {
     @Enumerated(EnumType.STRING)
     private FitnessLevel level;
 
-    @OneToMany(mappedBy = "routine", cascade = CascadeType.ALL)
-    private List<RoutineDetail> routineDetails;
+//    @OneToMany(mappedBy = "routine", cascade = CascadeType.ALL)
+//    private List<RoutineDetail> routineDetails;
 
 }
