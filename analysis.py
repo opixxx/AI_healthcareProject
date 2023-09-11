@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-from PIL import Image
 import tensorflow as tf
 import cv2
 import numpy as np
@@ -26,7 +25,7 @@ def process_single_video(video_file):
     # numpy 배열로 변환 및 정규화
     return np.array(frames, dtype=np.float32).reshape(-1, 64, 64, 1) / 255.0
 
-
+@app.route('/analysis', methods=['POST'])
 def process_video():
     # 사용자로부터 받은 비디오 데이터
     video_file = request.files.get('video')
@@ -48,7 +47,7 @@ def process_video():
     # JSON 응답 반환
     return jsonify({'advice': advice})
 
-    app.add_url_rule('/analysis', view_func=analyze_video, methods=['POST'])
+    # app.add_url_rule('/analysis', view_func=process_video, methods=['POST'])
 
 
 if __name__ == '__main__':
