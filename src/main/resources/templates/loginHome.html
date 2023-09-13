@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Lounge</title>
+    <link rel="stylesheet" th:href="@{css/home.css}">
+    <script th:src="@{js/home.js}" defer></script>
+</head>
+<body>
+
+<header>
+    <div class="logo-box">
+        <h1>Health Lounge</h1>
+    </div>
+    <nav style="margin-left: 900px;">
+        <ul class="menu">
+            <li><a th:text="${member.loginId}">로그인 Id</a></li>
+        </ul>
+    </nav>
+    <nav style="margin-right: 20px;">
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="#">메뉴</a>
+                <ul class="dropdown-content">
+                    <li><a th:href="@{/routine}">운동루틴추천</a></li>
+                    <li><a th:href="@{/analysis}">운동분석</a></li>
+                    <li><a href="#">운동기록</a></li>
+                    <li><a th:href="@{/signup}">회원가입</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- section-1 생략 -->
+<section class="section-2">
+    <div class="weekly-exercise">
+        <h2>이주의 운동 상황</h2>
+
+        <div class="gauge">
+            <div class="gauge-fill" style="width:90%"></div>
+            <!-- css로 바꾸는 형식을 변경해야 함 -->
+            <div class="gauge-label">0%</div>
+        </div>
+        <div class="stat">
+            <p th:text="|진행률: ${progress} %|">진행률: 0%</p>
+            <p th:text="|운동 성공률: ${success} %|">운동 성공률: 0%</p>
+        </div>
+    </div>
+
+    <div class="section-4">
+        <h2>나의운동기록</h2>
+        <div class="calendar" id="calendar">
+            <!— 여기에 달력이 동적으로 생성될 예정입니다. —>
+        </div>
+    </div>
+</section>
+
+<section class="section-3">
+    <!— 운동분석 박스 —>
+    <div class="box">
+        <h2>운동분석</h2>
+        <a th:href="@{/analysis}" class="btn">분석하기</a>
+    </div>
+    <!— 루틴추천 박스 —>
+    <div class="box">
+        <h2>루틴추천</h2>
+        <a th:href="@{/routine}" class="btn">추천받기</a>
+    </div>
+</section>
+</body>
+</html>

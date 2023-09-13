@@ -1,9 +1,9 @@
 async function registerUser() {
-    const username = document.getElementById('reg-username').value;
-    const password = document.getElementById('reg-password').value;
+    const loginId = document.getElementById('loginId').value;
+    const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
     const gender = document.getElementById('gender').value;
-    const koreanName = document.getElementById('korean-name').value;
+    const userName = document.getElementById('userName').value;
 
     if (password !== confirmPassword) {
         alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
@@ -17,10 +17,10 @@ async function registerUser() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: username,
+                username: loginId,
                 password: password,
                 gender: gender,
-                koreanName: koreanName
+                koreanName: userName
             })
         });
 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class MemberController {
 
-    final MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     @GetMapping("/sign-up")
     public String addForm(@ModelAttribute Member member) {
