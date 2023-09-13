@@ -1,74 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/analysis.css">
+    <link rel="stylesheet" type="text/css" th:href="@{css/analysis.css}">
     <title>운동 영상 분석</title>
 </head>
 <body>
-    <header>
-        <div class="logo-box">
-            <a href="home.html">Health Lounge</a>
-        </div>
-        <div class="logo-box">
-           <a>운동 분석영상</a>
-        </div>
-    </header>
-    
-    <h1>                      
-
-
-    </h1>
-    <form id="upload-form" enctype="multipart/form-data">
-        <input type="file" id="video-input" accept="video/*">
-        <input type="submit" value="분석 시작">
-    </form>
-    <div id="video-container">
-        <div id="original-video-wrapper">
-            <video id="original-video" controls>
-                <source id="\Users\nyljh\Documents\카카오톡 받은 파일\KakaoTalk_20230809_143206914.mp4" type="video/mp4">
-            </video>
-            <p><i>나의 모습</i></p>
-        </div>
-        <div id="corrected-video-wrapper">
-            <video id="corrected-video" controls>
-                <source id="corrected-source" type="video/mp4">
-            </video>
-            <p><i>미래의 나의 모습</i></p>
-        </div>
+<header>
+    <div class="logo-box">
+        <a th:href="@{/}">Health Lounge</a>
     </div>
-    <div id="advice-container">
-        <h3>조언</h3>
-        <p>쓴소리</p>
+    <div class="logo-box">
+        <a>운동 분석영상</a>
+    </div>
+</header>
+
+<h1>
+
+
+</h1>
+<form id="upload-form" action="/analysis" th:action="@{/analysis}" method="post" enctype="multipart/form-data">
+    <input type="file" id="video-input"  name="file" accept="video/*">
+    <input type="submit" value="분석 시작">
+</form>
+
+<div th:if="${error}" th:class="field-error">
+    <p class="field-error" th:text="${error}">오류 메시지</p>
+</div>
+
+<div id="video-container">
+    <div id="original-video-wrapper">
+        <video id="original-video" width="600" height="300" controls>
+            <source th:src="${originalVideoUrl}" type="video/mp4">
+            브라우저가 해당 서비스를 지원하지 않습니다.
+        </video>
+        <p><i>나의 영상</i></p>
     </div>
 
-    <script>
-        document.getElementById('upload-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var videoFile = document.getElementById('video-input').files[0];
-            var videoURL = URL.createObjectURL(videoFile);
-
-            var originalVideo = document.getElementById('original-video');
-            var originalSource = document.getElementById('original-source');
-            originalSource.src = videoURL;
-            originalVideo.load();
-
-            // 분석 로직 추가
-            // 분석된 올바른 자세의 영상 URL을 correctedSource.src에 설정
-
-            var correctedVideo = document.getElementById('corrected-video');
-            var correctedSource = document.getElementById('corrected-source');
-            correctedSource.src = correctedVideoURL;
-            correctedVideo.load();
-
-            // 조언 업데이트 로직 추가
-            var adviceContainer = document.getElementById('advice-container');
-            adviceContainer.innerHTML = `
-                <h3>조언</h3>
-                <p>영상 분석 결과에 따른 조언 내용이 표시됩니다.</p>
-                <p>올바른 자세를 유지하며 운동을 진행하세요.</p>
-            `;
-        }
-        );
+    <div id="guide-video-wrapper">
+        <video id="guide-video" width="600" height="300" controls>
+            <source th:src="${guideVideoUrl}" type="video/mp4">
+            브라우저가 해당 서비스를 지원하지 않습니다.
+        </video>
+        <p><i>가이드 영상</i></p>
+    </div>
+</div>
+<div id="advice-container">
+    <h3>조언</h3>
+    <p th:text="${advice}">쓴소리</p>
+</div>

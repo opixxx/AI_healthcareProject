@@ -1,42 +1,77 @@
-const performanceSelect = document.getElementById('performance-level');
-const performanceDesc = document.getElementById('performance-description');
-const daySection = document.querySelector('.day-section');
+const exerciseCountMapping = {
+    '3': 'THREE',
+    '4': 'FOUR',
+    '5': 'FIVE'
+};
 
-performanceSelect.addEventListener('change', function() {
-    switch(performanceSelect.value) {
-        case 'beginner':
-            performanceDesc.textContent = "헬린이: 운동 초보자를 위한 레벨";
-            break;
-        case 'intermediate':
-            performanceDesc.textContent = "헬스장 민페남: 중간 레벨의 운동자";
-            break;
-        case 'expert':
-            performanceDesc.textContent = "헬스의 정석: 전문가 레벨";
-            break;
-        default:
-            performanceDesc.textContent = "";
-    }
-});
-
-// 처음 페이지 로드 시 기본 설명 설정
-performanceDesc.textContent = "헬린이: 운동 초보자를 위한 레벨";
-
-// 초기 화면에서는 DAY를 표시하지 않기 위해 daySection의 내용을 비웁니다.
-daySection.innerHTML = '';
+const levelMapping = {
+    'beginner': 'BEGINNER',
+    'intermediate': 'INTERMEDIATE'
+};
 
 document.getElementById('fetch-data').addEventListener('click', function() {
-    const exerciseCount = document.getElementById('exercise-count').value;
-    
-    // 기존에 생성된 DAY 칸을 모두 제거합니다.
-    daySection.innerHTML = '';
+    const exerciseCountInput = document.getElementById('exercise-count');
+    const levelSelect = document.getElementById('performance-level');
 
-    // 최대 5일까지만 생성합니다.
-    const count = Math.min(exerciseCount, 5);
+    // Get the selected values
+    const exerciseCount = exerciseCountMapping[exerciseCountInput.value];
+    const level = levelMapping[levelSelect.value];
 
-    for (let i = 1; i <= count; i++) {
-        const dayBox = document.createElement('a');
-        dayBox.href = `day${i}.html`;
-        dayBox.innerHTML = `<div class="day-box">DAY${i}</div>`;
-        daySection.appendChild(dayBox);
+    // Check if the values are valid
+    if (!exerciseCount || !level) {
+        console.error('Invalid input values');
+        return;
     }
+
+    // Send the mapped values to the server
+    fetchDataFromServer(exerciseCount, level);
 });
+
+function fetchDataFromServer(exerciseCount, level) {
+    const apiUrl = `/recommand?dayCount=${exerciseCount}&level=${level}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Server response received, save to sessionStorage
+            sessionStorage.setItem('routineData', JSON.stringify(data));
+            window.location.href = '/routineList';  // redirect to routineList.html
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+
+}
+
+// function displayRoutine(routineData) {
+//     const routineContainer = document.querySelector('.day-section');
+//     routineContainer.innerHTML = '';  // Clear existing data
+//
+//     const exerciseCountInput = document.getElementById('exercise-count');
+//     const maxDisplayDay = parseInt(exerciseCountInput.value);
+//
+//     for (let i = 1; i <= maxDisplayDay; i++) {
+//         const dayRoutineContainer = document.createElement('div');
+//         dayRoutineContainer.className = `day${i}-routine`;
+//         dayRoutineContainer.innerHTML = `<h3>DAY${i}</h3>`;
+//         routineContainer.appendChild(dayRoutineContainer);
+//
+//         // Filter routines for the current day
+//         const routinesForDay = routineData.filter(routine => routine.day === i);
+//
+//         routinesForDay.forEach(routine => {
+//             const exerciseCard = document.createElement('div');
+//             exerciseCard.className = 'exercise-card';
+//
+//             const exerciseName = document.createElement('h4');
+//             exerciseName.textContent = routine.exerciseName;
+//             exerciseCard.appendChild(exerciseName);
+//
+//             const setsAndReps = document.createElement('p');
+//             setsAndReps.textContent = `${routine.sets}세트 ${routine.reps}회`;
+//             exerciseCard.appendChild(setsAndReps);
+//
+//             dayRoutineContainer.appendChild(exerciseCard);
+//         });
+//     }
+// }
