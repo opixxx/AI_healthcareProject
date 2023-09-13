@@ -1,14 +1,12 @@
 import glob
-
 import cv2
-
 import numpy as np
 from sklearn.model_selection import train_test_split
 
 
 # 동영상 경로
-good_videos =glob.glob('C:/Users/82102/Desktop/aidata/good_squat/*.mp4')
-bad_videos = glob.glob('C:/Users/82102/Desktop/aidata/bad_squat/*.mp4')
+good_videos =glob.glob('C:/Users/JunHyeok/aidata/good/*.mp4')
+bad_videos = glob.glob('C:/Users/JunHyeok/aidata/bad/*.mp4')
 
 X = []
 y = []

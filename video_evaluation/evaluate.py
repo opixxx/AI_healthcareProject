@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from keras.models import load_model
 
-model_path = 'C:/Users/82102/PycharmProjects/motion_analysis/saved_models/CNN_model_h5'
+model_path = 'C:/Users/JunHyeok/PycharmProjects/pythonProject3/model/CNN_model_h5'
 model = load_model(model_path)
 def evaluate_squat(video_path):
     cap = cv2.VideoCapture(video_path)
@@ -33,6 +33,6 @@ def evaluate_squat(video_path):
     else:
         return "Bad Squat"
 
-video_path = 'C:/Users/82102/Desktop/aidata/evaluate/squat_test2.mp4'
+video_path = 'C:/Users/JunHyeok/aidata/test/squat_test2.mp4'
 result = evaluate_squat(video_path)
 print(result)

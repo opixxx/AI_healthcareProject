@@ -5,13 +5,13 @@ import numpy as np
 
 
 #model load
-model = tf.keras.models.load_model('saved_models/CNN_model_h5')
+model = tf.keras.models.load_model('C:/Users/JunHyeok/PycharmProjects/pythonProject3/model/CNN_model_h5')
 
 app = Flask(__name__)
 
-def process_single_video(video_file):
+def process_single_video(video_path):
     # 비디오에서 프레임 추출
-    cap = cv2.VideoCapture(video_file)
+    cap = cv2.VideoCapture(video_path)
     frames = []
     while cap.isOpened():
         ret, frame = cap.read()
@@ -27,11 +27,14 @@ def process_single_video(video_file):
 
 @app.route('/analysis', methods=['POST'])
 def process_video():
-    # 사용자로부터 받은 비디오 데이터
-    video_file = request.files.get('video')
+    # JSON 데이터를 파싱
+    data = request.get_json()
+
+    # JSON 데이터에서 필요한 정보 추출
+    video_path = data.get('videoPath')
 
     # 비디오 전처리
-    processed_frames = process_single_video(video_file)
+    processed_frames = process_single_video(video_path)
 
     # 모델 예측
     predictions = model.predict(processed_frames)
