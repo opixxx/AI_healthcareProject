@@ -1,0 +1,86 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    padding: 20px;
+    background-color: #00cc99;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-box {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-box a {
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+}
+
+.routine-title {
+    text-align: center;
+    margin: 20px auto; /* Center the title horizontally */
+    color: #00664d;
+    width: 100%; /* Take up the full available width */
+    max-width: 800px; /* Limit the maximum width */
+}
+
+
+
+
+.routine-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%; /* Take up the full available width */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px; /* Adjust padding */
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    flex: 1 1 0;
+    align-items: stretch;
+    height: 800px;
+}
+
+
+
+.exercise-card  {
+    font-size: 1em; /* 크기 조정 */
+    margin-bottom: 3px;
+    color: #004d33;
+
+}
+
+.rep-input,
+.set-input {
+    width: 50px; /* 너비 조정 */
+    padding: 4px;
+    margin: 0 8px; /* 입력 사이의 마진 조정 */
+    border: 1px solid #aaa;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    font-size: 1em; /* 크기 조정 */
+}
+
+
+
+.routine-wrapper {
+    display: flex;
+    justify-content: center; /* Center the routine section horizontally */
+    gap: 20px;
+    padding: 0 20px;
+
+}

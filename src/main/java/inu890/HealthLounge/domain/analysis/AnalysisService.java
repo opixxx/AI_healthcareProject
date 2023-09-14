@@ -15,6 +15,7 @@ public class AnalysisService {
 
     private final WebClient webClient;
 
+
     @Autowired
     public AnalysisService(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder.baseUrl("http://localhost:5000").build();
@@ -25,12 +26,14 @@ public class AnalysisService {
         Map<String, String> requestData = new HashMap<>();
         requestData.put("videoPath", videoPath);
 
-        return webClient.post()
+        AdviceResponse response = webClient.post()
                 .uri("/analysis")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromValue(requestData))
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(AdviceResponse.class)
                 .block();
+        return response.getAdvice();
+
     }
 }
