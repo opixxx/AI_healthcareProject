@@ -4,8 +4,6 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 
 from data_processing.processing import X_train, y_train, X_val, y_val, X_test, y_test
 
-
-
 # Define the CNN model
 model = Sequential()
 model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 1)))
@@ -29,4 +27,4 @@ loss, accuracy = model.evaluate(np.array(X_test), np.array(y_test))
 print("Test Loss:", loss)
 print("Test Accuracy:", accuracy)
 
-model.save('CNN_model_h5')
+model.save('CNN_model_v2.h5')
