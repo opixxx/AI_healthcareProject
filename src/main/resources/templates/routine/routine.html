@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>운동루틴추천</title>
     <link rel="stylesheet" th:href="@{/css/routine.css}">
-    <script th:src="@{/js/routine.js}" defer></script>
 </head>
 <body>
 <header>
@@ -18,15 +17,19 @@
 </header>
 <div class="input-section">
     <div class="input-group">
-        <label for="exercise-count">운동횟수</label>
-        <input type="number" id="exercise-count" placeholder="입력값">
+        <label for="exercise-part">운동부위</label>
+        <select id="exercise-part">
+            <option value="CHEST">가슴</option>
+            <option value="SHOULDER">어깨</option>
+            <option value="BACK">등</option>
+            <option value="LEG">하체</option>
+        </select>
     </div>
     <div class="input-group">
         <label for="performance-level">수행 레벨</label>
         <select id="performance-level">
-            <option value="beginner">헬린이</option>
-            <option value="intermediate">헬스장 민페남</option>
-            <option value="expert">헬스의 정석</option>
+            <option value="BEGINNER">헬스 초딩</option>
+            <option value="INTERMEDIATE">헬스 중딩 </option>
         </select>
         <p id="performance-description" class="performance-desc"></p>
     </div>
@@ -34,8 +37,7 @@
         <button id="fetch-data" class="chicken-btn">🐔추천해준닭</button>
     </div>
 </div>
-
-
+<script th:src="@{/js/routine.js}" defer></script>
 </body>
 </html>
 

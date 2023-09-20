@@ -1,77 +1,45 @@
-const exerciseCountMapping = {
-    '3': 'THREE',
-    '4': 'FOUR',
-    '5': 'FIVE'
-};
-
-const levelMapping = {
-    'beginner': 'BEGINNER',
-    'intermediate': 'INTERMEDIATE'
-};
-
 document.getElementById('fetch-data').addEventListener('click', function() {
-    const exerciseCountInput = document.getElementById('exercise-count');
+
+    // 선택된 값들을 가져옵니다.
+    const exercisePartSelect = document.getElementById('exercise-part');
     const levelSelect = document.getElementById('performance-level');
 
-    // Get the selected values
-    const exerciseCount = exerciseCountMapping[exerciseCountInput.value];
-    const level = levelMapping[levelSelect.value];
+    console.log("fetch-data 버튼이 클릭되었습니다.");
+    console.log(document.getElementById('exercise-part'));  // 요소 자체를 출력하여 null인지 확인
+    console.log(document.getElementById('performance-level'));  // 요소 자체를 출력하여 null인지 확인
 
-    // Check if the values are valid
-    if (!exerciseCount || !level) {
+    const exercisePartInput = exercisePartSelect.value;
+    const levelInput = levelSelect.value;
+
+    console.log(exercisePartInput.value);  // 선택된 값 출력
+    console.log(levelInput.value);
+
+    // 값들이 유효한지 확인합니다.
+    if (!exercisePartInput || !levelInput) {
         console.error('Invalid input values');
         return;
     }
 
-    // Send the mapped values to the server
-    fetchDataFromServer(exerciseCount, level);
+    // 매핑된 값들을 서버로 전송합니다.
+    fetchDataFromServer(exercisePartInput, levelInput);
 });
 
-function fetchDataFromServer(exerciseCount, level) {
-    const apiUrl = `/recommand?dayCount=${exerciseCount}&level=${level}`;
+function fetchDataFromServer(exercisePart, level) {
+    const apiUrl = `/recommands?part=${exercisePart}&level=${level}`;
 
     fetch(apiUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
-            // Server response received, save to sessionStorage
+            // 서버 응답을 받았다면, sessionStorage에 저장합니다.
             sessionStorage.setItem('routineData', JSON.stringify(data));
-            window.location.href = '/routineList';  // redirect to routineList.html
+            window.location.href = '/routineList';  // routineList.html로 리다이렉트 합니다.
         })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
-
 }
-
-// function displayRoutine(routineData) {
-//     const routineContainer = document.querySelector('.day-section');
-//     routineContainer.innerHTML = '';  // Clear existing data
-//
-//     const exerciseCountInput = document.getElementById('exercise-count');
-//     const maxDisplayDay = parseInt(exerciseCountInput.value);
-//
-//     for (let i = 1; i <= maxDisplayDay; i++) {
-//         const dayRoutineContainer = document.createElement('div');
-//         dayRoutineContainer.className = `day${i}-routine`;
-//         dayRoutineContainer.innerHTML = `<h3>DAY${i}</h3>`;
-//         routineContainer.appendChild(dayRoutineContainer);
-//
-//         // Filter routines for the current day
-//         const routinesForDay = routineData.filter(routine => routine.day === i);
-//
-//         routinesForDay.forEach(routine => {
-//             const exerciseCard = document.createElement('div');
-//             exerciseCard.className = 'exercise-card';
-//
-//             const exerciseName = document.createElement('h4');
-//             exerciseName.textContent = routine.exerciseName;
-//             exerciseCard.appendChild(exerciseName);
-//
-//             const setsAndReps = document.createElement('p');
-//             setsAndReps.textContent = `${routine.sets}세트 ${routine.reps}회`;
-//             exerciseCard.appendChild(setsAndReps);
-//
-//             dayRoutineContainer.appendChild(exerciseCard);
-//         });
-//     }
-// }

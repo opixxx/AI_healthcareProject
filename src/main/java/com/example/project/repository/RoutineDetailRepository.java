@@ -15,4 +15,8 @@ public interface RoutineDetailRepository extends JpaRepository<RoutineDetail, Lo
             " where rd.routine.routineId = :routineId")
     List<Object[]> findDetailsWithExerciseNameByRoutineId(@Param("routineId") Long routineId);
 
+    @Query("select e.name, rd.sets, rd.reps from RoutineDetail rd join rd.exercise e where rd.routine.routineId = :routineId")
+    List<Object[]> findRoutineList(@Param("routineId") Long routineId);
+
+
 }

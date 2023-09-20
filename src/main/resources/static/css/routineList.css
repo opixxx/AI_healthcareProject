@@ -35,14 +35,6 @@ header {
     max-width: 800px; /* Limit the maximum width */
 }
 
-.routine-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 100px);
-    background-color: #f4f4f4;
-    padding: 40px 0;
-}
 
 
 
@@ -57,14 +49,18 @@ header {
     padding: 20px; /* Adjust padding */
     border-radius: 15px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    flex: 1 1 0;
+    align-items: stretch;
+    height: 800px;
 }
 
 
 
-.exercise-card h2 {
-    font-size: 0.7em; /* 크기 조정 */
-    margin-bottom: 5px;
+.exercise-card  {
+    font-size: 1em; /* 크기 조정 */
+    margin-bottom: 3px;
     color: #004d33;
+
 }
 
 .rep-input,
@@ -81,30 +77,10 @@ header {
 
 
 
-
-.save-button-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.save-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.save-button:hover {
-    background-color: #45a049;
-}
-
 .routine-wrapper {
     display: flex;
     justify-content: center; /* Center the routine section horizontally */
     gap: 20px;
     padding: 0 20px;
+
 }

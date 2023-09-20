@@ -1,3 +1,8 @@
+server:
+  servlet:
+    session:
+      tracking-modes: cookie
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,6 +19,18 @@ spring:
         format_sql: true
         default_batch_fetch_size: 100
 
+aws:
+  s3:
+    bucketName: health-lounge890
+
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
 logging.level:
   org.hibernate.SQL: debug
   org.hibernate.orm.jdbc.bind: trace
+
+

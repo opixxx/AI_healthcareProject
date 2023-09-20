@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" th:href="@{css/analysis.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/analysis.css}">
     <title>운동 영상 분석</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
 
 
 </h1>
-<form id="upload-form" action="/analysis" th:action="@{/analysis}" method="post" enctype="multipart/form-data">
+<form id="upload-form" action="/analysis" th:action="@{/templates/analysis}" method="post" enctype="multipart/form-data">
     <input type="file" id="video-input"  name="file" accept="video/*">
     <input type="submit" value="분석 시작">
 </form>

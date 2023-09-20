@@ -106,4 +106,7 @@ select option {
     padding: 10px;
 }
 
-
+.error-message {
+    color: red;
+    font-size: 0.8em;
+}

@@ -2,6 +2,7 @@ package com.example.project.Service;
 
 import com.example.project.domain.Days;
 import com.example.project.domain.FitnessLevel;
+import com.example.project.domain.Part;
 import com.example.project.repository.RoutineDetailRepository;
 import com.example.project.repository.RoutineRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,20 @@ public class RoutineService {
         Long selectedRoutineId = routineIds.get(random.nextInt(routineIds.size()));
 
         return routineDetailRepository.findDetailsWithExerciseNameByRoutineId(selectedRoutineId);
+    }
+
+
+    @Transactional
+    public List<Object[]> getRoutineList(Part part, FitnessLevel level) {
+        List<Long> routineIds = routineRepository.findRoutineIdByPartAndLevel(part, level);
+
+        if (routineIds.isEmpty()) {
+            throw new IllegalArgumentException("조건에 맞는 루틴이 없습니다.");
+        }
+        Random random = new Random();
+        Long selectedRoutineId = routineIds.get(random.nextInt(routineIds.size()));
+
+        return routineDetailRepository.findRoutineList(selectedRoutineId);
     }
 
 

@@ -4,7 +4,6 @@ package com.example.project.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -18,7 +17,7 @@ public class RoutineController {
     }
 
     @GetMapping("/routineList")
-    public String showRoutineList() {
+    public String RoutineList() {
         return "routine/routineList";
     }
 
