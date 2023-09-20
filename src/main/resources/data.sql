@@ -1,5 +1,5 @@
-INSERT INTO guide_video (guide_video_path, exercise_type) VALUES ('https://health-lounge890.s3.ap-northeast-2.amazonaws.com/videos/guide_squat2.mp4','SQUAT');
 
+INSERT INTO guide_video (guide_video_path, exercise_type) VALUES ('https://health-lounge890.s3.ap-northeast-2.amazonaws.com/videos/guide_squat3.mp4','SQUAT');
 
 INSERT INTO exercise (name) VALUES ('체스트 프레스'), ('인클라인 벤치 프레스 머신'), ('인클라인 벤치 프레스'),
     ('벤치 프레스'),

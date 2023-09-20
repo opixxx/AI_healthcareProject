@@ -219,7 +219,7 @@ nav a {
     background: #e0e0e0;
     border-radius: 25px; /* 높이의 절반 값으로 설정하여 완벽한 둥근 모양을 유지 */
     overflow: hidden;
-    margin-left: 130px;
+    margin-left: 25%;
 }
 
 .gauge-fill {

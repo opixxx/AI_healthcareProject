@@ -18,6 +18,7 @@ header {
 .logo-box {
     max-width: 1200px;
     margin: 0 auto;
+    text-align: left;
 }
 
 .logo-box a {
@@ -41,26 +42,29 @@ header {
 .routine-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
+    gap: 50PX;
     max-width: 100%; /* Take up the full available width */
     margin: 0 auto;
     background-color: #fff;
-    padding: 20px; /* Adjust padding */
+    padding: 50px; /* Adjust padding */
     border-radius: 15px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    flex: 1 1 0;
-    align-items: stretch;
-    height: 800px;
+    height: auto; /* 높이를 자동으로 설정 */
+    width: auto;
+
 }
 
 
 
 .exercise-card  {
-    font-size: 1em; /* 크기 조정 */
+    font-size: 0.50em; /* 크기 조정 */
     margin-bottom: 3px;
     color: #004d33;
-
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 20%;
+    width: auto;
 }
 
 .rep-input,
@@ -79,8 +83,25 @@ header {
 
 .routine-wrapper {
     display: flex;
-    justify-content: center; /* Center the routine section horizontally */
+    justify-content: center;
     gap: 20px;
-    padding: 0 20px;
+    height: auto;
 
+}
+
+.save-button {
+    display: block;
+    margin: 20px auto; /* 가운데 정렬 */
+    padding: 10px 20px;
+    background-color: #00cc99;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-button:hover {
+    background-color: #00997a; /* 버튼 호버 시 약간 어두운 색으로 변경 */
 }

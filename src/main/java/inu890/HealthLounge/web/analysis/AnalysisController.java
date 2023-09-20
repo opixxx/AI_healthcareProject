@@ -50,7 +50,7 @@ public class AnalysisController {
             if (guideVideo.isPresent()) {
                 model.addAttribute("guideVideoUrl", guideVideo.get().getGuideVideoPath());
             } else {
-                model.addAttribute("guideVideoUrl", "https://health-lounge890.s3.ap-northeast-2.amazonaws.com/videos/guide_squat.mp4");
+                model.addAttribute("guideVideoUrl", "");
             }
 
             model.addAttribute("originalVideoUrl", videoPath);
@@ -79,7 +79,7 @@ public class AnalysisController {
         metadata.setContentLength(file.getSize());
         amazonS3Client.putObject(bucketName, key, file.getInputStream(), metadata);
 
-        return "https://" + bucketName + ".s3.amazonaws.com/" + key;
+        return "https://" + bucketName + ".s3.ap-northeast-2.amazonaws.com/" + key;
     }
 
     public ExerciseVideo saveToDb(String videoName, String videoPath) {

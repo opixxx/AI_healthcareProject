@@ -2,6 +2,7 @@ package inu890.HealthLounge.web.login;
 
 import inu890.HealthLounge.domain.login.LoginService;
 import inu890.HealthLounge.domain.member.Member;
+import inu890.HealthLounge.domain.member.MemberRepository;
 import inu890.HealthLounge.web.session.SessionConst;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -38,7 +39,6 @@ public class LoginController {
         }
 
         HttpSession session = request.getSession();
-
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
 
         return "redirect:/";

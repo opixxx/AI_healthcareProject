@@ -1,6 +1,6 @@
 header {
     width: 100%;
-    padding: 20px 0;
+    padding: 20px;
     background-color: #00cc99;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
     text-align: center;  /* 로고 중앙 정렬 */
@@ -104,5 +104,10 @@ select:focus {
 
 select option {
     padding: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
 }
 

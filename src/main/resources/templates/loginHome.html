@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Lounge</title>
-    <link rel="stylesheet" th:href="@{css/home.css}">
+    <link rel="stylesheet" th:href="@{css/loginHome.css}">
     <script th:src="@{js/home.js}" defer></script>
 </head>
 <body>
@@ -14,8 +14,8 @@
         <h1>Health Lounge</h1>
     </div>
     <nav style="margin-left: 900px;">
-        <ul class="menu">
-            <li><a th:text="${member.loginId}">로그인 Id</a></li>
+        <ul class="user-info">
+            <li><a th:text="${loginMember.userName}">로그인 Id</a></li>
         </ul>
     </nav>
     <nav style="margin-right: 20px;">
@@ -27,6 +27,7 @@
                     <li><a th:href="@{/analysis}">운동분석</a></li>
                     <li><a href="#">운동기록</a></li>
                     <li><a th:href="@{/signup}">회원가입</a></li>
+                    <li><a href="##">로그아웃</a></li>
                 </ul>
             </li>
         </ul>
@@ -36,16 +37,18 @@
 <!-- section-1 생략 -->
 <section class="section-2">
     <div class="weekly-exercise">
-        <h2>이주의 운동 상황</h2>
+        <h2>이번 주 운동 상황</h2>
 
         <div class="gauge">
-            <div class="gauge-fill" style="width:90%"></div>
-            <!-- css로 바꾸는 형식을 변경해야 함 -->
-            <div class="gauge-label">0%</div>
+            <div class="gauge-fill" style="width:50%"></div>
+            <!-- css로 바꾸는 형식을 변경해야 함
+            ${progress},
+            ${success} -->
+            <div class="gauge-label">50%</div>
         </div>
         <div class="stat">
-            <p th:text="|진행률: ${progress} %|">진행률: 0%</p>
-            <p th:text="|운동 성공률: ${success} %|">운동 성공률: 0%</p>
+            <p th:text="|진행률: 50 %|">진행률: 50%</p>
+            <p th:text="|운동 성공률: 50 %|">운동 성공률: 50%</p>
         </div>
     </div>
 
